@@ -1,0 +1,37 @@
+@import '../../_vars';
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 160px;
+  .plan_logo {
+    width: 97px;
+    height: 25px;
+    margin: 30px 0;
+    @extend %image_style;
+  }
+  .plan_logo[data-plan='aetna'] {
+    background-image: url('../../assets/logo_aetna_grayscale.svg');
+  }
+  .plan_logo[data-plan='kaiser'] {
+    width: 93px;
+    background-image: url('../../assets/logo_kaiser_permanente_grayscale.svg');
+  }
+  .plan_logo[data-plan='anthem'] {
+    width: 136px;
+    background-image: url('../../assets/logo_anthem_color.svg');
+  }
+  .plan_name {
+    width: 300px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 414px) {
+  .box {
+    margin-top: 8vh;
+  }
+}
