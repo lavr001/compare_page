@@ -3,11 +3,10 @@ import classes from './Tabs.module.scss';
 
 const tabs = props => {
   return (
-    <div className={classes.box}>
-      <div className={classes.tab} data-active='true' onClick={(event, name) => props.clicked(event, 'aetna')}>Plan A</div>
-      <div className={classes.tab} data-active='false' onClick={(event, name) => props.clicked(event, 'kaiser')}>Plan B</div>
-      <div className={classes.tab} data-active='false' onClick={(event, name) => props.clicked(event, 'anthem')}>Plan C</div>
-      <div className={classes.tab}>Add Current Plan</div>
+    <div className={classes.box} data-tabs>
+      <div className={classes.tab} data-active='true' onClick={(event, name) => props.clicked(event, 'aetna')}>Aetna</div>
+      <div className={classes.tab} data-active='false' onClick={(event, name) => props.clicked(event, 'kaiser')}>Kaiser</div>
+      <div className={classes.tab} data-active='false' onClick={(event, name) => props.clicked(event, 'anthem')}>Anthem</div>
     </div>
   )
 };

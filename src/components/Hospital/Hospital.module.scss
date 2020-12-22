@@ -7,14 +7,27 @@
   }
   .section_content {
     @extend %section_content;
+    .section_title {
+      padding: 12px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      background-color: #F8F8F8;
+    }
     .section_subtitle {
       @extend %section_subtitle;
     }
-    .section_cost {
+    .section_subtitle_border {
+      width: 100%;
+      border-top: 1px solid #333;
+    }
+    .section_wrap {
+      display: flex;
+      flex-direction: column;
       @extend %section_cost;
     }
-    .section_disclaimer {
-      @extend %section_disclaimer;
+    .section_cost {
+      @extend %section_cost;
     }
   }
 }
@@ -23,19 +36,11 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-highlights='sticky'] {
+  .box[data-section-hospital='sticky'] {
     .section_header {
       position: fixed;
       top: 12vh;
     }
-    // .section_header[data-section-header-highlights='flexible'] {
-    //   position: sticky;
-    //   top: 0;
-    //   // left: 0;
-    //   // bottom: 0;
-    //   // right: 0;
-    //   // -webkit-backface-visibility: hidden;
-    // }
     .section_content {
       margin-top: 60px;
     }

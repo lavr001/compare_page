@@ -27,6 +27,15 @@ body {
     -webkit-overflow-scrolling: touch;
     background-color: #fff;
     font-weight: 800;
+    a {
+      position: fixed;
+      right: 3vh;
+      bottom: 3vh;
+      z-index: 1;
+      text-decoration: none;
+      color: #3A5EBA;
+      font-weight: 700;
+    }
   }
 }
 

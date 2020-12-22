@@ -10,20 +10,23 @@
   height: 100px;
   font-weight: bold;
   font-size: 18px;
-  background-color: $ehm_blue;
+  background-color: #fff;
+  border-bottom: 1px solid #333;
   .tab {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex: .25;
-    border-right: 1px solid #fff;
-    color: #fff;
+    flex: .33;
+    border-right: 1px solid #333;
+    color: #333;
   }
   .tab[data-active='true'] {
-    background-color: $ehm_dark_blue;
+    background-color: #333;
+    color: #fff;
   }
   .tab:last-child {
+    flex: .34;
     border: none;
   }
 }
