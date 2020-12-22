@@ -13,13 +13,14 @@
       font-size: 20px;
       font-weight: 600;
       background-color: #F8F8F8;
-    }
-    .section_subtitle {
-      @extend %section_subtitle;
+      border-top: 2px solid #333;
     }
     .section_subtitle_border {
       width: 100%;
       border-top: 1px solid #333;
+    }
+    .section_subtitle {
+      @extend %section_subtitle;
     }
     .section_wrap {
       display: flex;
@@ -39,7 +40,7 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-hospital='sticky'] {
+  .box[data-section-more='sticky'] {
     .section_header {
       position: fixed;
       top: 12vh;

@@ -1,18 +1,14 @@
 import React from 'react';
-import classes from './Hospital.module.scss';
+import classes from './Hearing.module.scss';
 
-const hospital = props => {
+const hearing = props => {
   return (
-    <div className={classes.box} data-section-hospital>
-      <div className={classes.section_header}>Hospital</div>
+    <div className={classes.box} data-section-hearing>
+      <div className={classes.section_header}>Hearing</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {
           if (el.includes('Copays')) {
             return <div className={classes.section_title} key={i}>{el}</div>
-          } else if (el.includes('days') || el.includes('day')) {
-            return <div className={classes.section_wrap} key={i}>&#8226; {el}</div>
-          } else if (el.includes('border')) {
-            return <div className={classes.section_subtitle_border} key={i}></div>
           } else if (!el) {
             return null
           } else {
@@ -23,10 +19,10 @@ const hospital = props => {
             }
           }
         })}
-        <div className={classes.section_disclaimer}>* Depending on service provided.</div>
+        <div className={classes.section_disclaimer}>* 1 per year. ** Depending on service provided.</div>
       </div>
     </div>
   )
 };
 
-export default hospital;
+export default hearing;
