@@ -3,7 +3,7 @@ import classes from './More.module.scss';
 
 const more = props => {
   return (
-    <div className={classes.box} data-section-more>
+    <div className={classes.box} data-section='more' data-sticky='false'>
       <div className={classes.section_header}>More</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {

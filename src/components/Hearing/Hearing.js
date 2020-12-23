@@ -3,7 +3,7 @@ import classes from './Hearing.module.scss';
 
 const hearing = props => {
   return (
-    <div className={classes.box} data-section-hearing>
+    <div className={classes.box} data-section='hearing' data-sticky='false'>
       <div className={classes.section_header}>Hearing</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {

@@ -3,7 +3,7 @@ import classes from './Hospital.module.scss';
 
 const hospital = props => {
   return (
-    <div className={classes.box} data-section-hospital>
+    <div className={classes.box} data-section='hospital' data-sticky='false'>
       <div className={classes.section_header}>Hospital</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {

@@ -3,7 +3,7 @@ import classes from './Vision.module.scss';
 
 const vision = props => {
   return (
-    <div className={classes.box} data-section-vision>
+    <div className={classes.box} data-section='vision' data-sticky='false'>
       <div className={classes.section_header}>Vision</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {

@@ -40,7 +40,7 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-more='sticky'] {
+  .box[data-sticky='true'] {
     .section_header {
       position: fixed;
       top: 12vh;

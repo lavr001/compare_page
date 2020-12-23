@@ -3,7 +3,7 @@ import classes from './Drugs.module.scss';
 
 const drugs = props => {
   return (
-    <div className={classes.box} data-section-drugs>
+    <div className={classes.box} data-section='drugs' data-sticky='false'>
       <div className={classes.section_header}>Drugs</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {

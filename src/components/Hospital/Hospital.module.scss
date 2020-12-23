@@ -39,7 +39,7 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-hospital='sticky'] {
+  .box[data-sticky='true'] {
     .section_header {
       position: fixed;
       top: 12vh;

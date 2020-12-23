@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Tabs from './components/Tabs/Tabs';
 import Plan from './components/Plan/Plan';
+import Filter from './components/Filter/Filter';
 import Highlights from './components/Highlights/Highlights';
 import Doctors from './components/Doctors/Doctors';
 import Drugs from './components/Drugs/Drugs';
@@ -61,81 +62,101 @@ class App extends Component {
 
   onScroll = () => {
     let tabs_bottom = document.querySelector('[data-tabs]').getBoundingClientRect().bottom;
-    let highlights_section_top = document.querySelector('[data-section-highlights]').getBoundingClientRect().top;
-    let doctors_section_top = document.querySelector('[data-section-doctors]').getBoundingClientRect().top;
-    let drugs_section_top = document.querySelector('[data-section-drugs]').getBoundingClientRect().top;
-    let hospital_section_top = document.querySelector('[data-section-hospital]').getBoundingClientRect().top;
-    let dental_section_top = document.querySelector('[data-section-dental]').getBoundingClientRect().top;
-    let vision_section_top = document.querySelector('[data-section-vision]').getBoundingClientRect().top;
-    let hearing_section_top = document.querySelector('[data-section-hearing]').getBoundingClientRect().top;
-    let more_section_top = document.querySelector('[data-section-more]').getBoundingClientRect().top;
+    let highlights_section_top = document.querySelector('[data-section="highlights"]').getBoundingClientRect().top;
+    let doctors_section_top = document.querySelector('[data-section="doctors"]').getBoundingClientRect().top;
+    let drugs_section_top = document.querySelector('[data-section="drugs"]').getBoundingClientRect().top;
+    let hospital_section_top = document.querySelector('[data-section="hospital"]').getBoundingClientRect().top;
+    let dental_section_top = document.querySelector('[data-section="dental"]').getBoundingClientRect().top;
+    let vision_section_top = document.querySelector('[data-section="vision"]').getBoundingClientRect().top;
+    let hearing_section_top = document.querySelector('[data-section="hearing"]').getBoundingClientRect().top;
+    let more_section_top = document.querySelector('[data-section="more"]').getBoundingClientRect().top;
 
     if (tabs_bottom >= highlights_section_top) {
-      document.querySelector('[data-section-highlights]').setAttribute('data-section-highlights', 'sticky');
+      document.querySelector('[data-section="highlights"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-highlights]').setAttribute('data-section-highlights', 'true');
+      document.querySelector('[data-section="highlights"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= doctors_section_top) {
-      document.querySelector('[data-section-doctors]').setAttribute('data-section-doctors', 'sticky');
+      document.querySelector('[data-section="doctors"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-doctors]').setAttribute('data-section-doctors', 'true');
+      document.querySelector('[data-section="doctors"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= drugs_section_top) {
-      document.querySelector('[data-section-drugs]').setAttribute('data-section-drugs', 'sticky');
+      document.querySelector('[data-section="drugs"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-drugs]').setAttribute('data-section-drugs', 'true');
+      document.querySelector('[data-section="drugs"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= hospital_section_top) {
-      document.querySelector('[data-section-hospital]').setAttribute('data-section-hospital', 'sticky');
+      document.querySelector('[data-section="hospital"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-hospital]').setAttribute('data-section-hospital', 'true');
+      document.querySelector('[data-section="hospital"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= dental_section_top) {
-      document.querySelector('[data-section-dental]').setAttribute('data-section-dental', 'sticky');
+      document.querySelector('[data-section="dental"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-dental]').setAttribute('data-section-dental', 'true');
+      document.querySelector('[data-section="dental"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= vision_section_top) {
-      document.querySelector('[data-section-vision]').setAttribute('data-section-vision', 'sticky');
+      document.querySelector('[data-section="vision"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-vision]').setAttribute('data-section-vision', 'true');
+      document.querySelector('[data-section="vision"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= hearing_section_top) {
-      document.querySelector('[data-section-hearing]').setAttribute('data-section-hearing', 'sticky');
+      document.querySelector('[data-section="hearing"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-hearing]').setAttribute('data-section-hearing', 'true');
+      document.querySelector('[data-section="hearing"]').setAttribute('data-sticky', 'false');
     }
 
     if (tabs_bottom >= more_section_top) {
-      document.querySelector('[data-section-more]').setAttribute('data-section-more', 'sticky');
+      document.querySelector('[data-section="more"]').setAttribute('data-sticky', 'true');
     } else {
-      document.querySelector('[data-section-more]').setAttribute('data-section-more', 'true');
+      document.querySelector('[data-section="more"]').setAttribute('data-sticky', 'false');
     }
+  }
+
+  show_filters = () => {
+    document.querySelector('[data-filter]').setAttribute('data-filter', 'show');
+    document.querySelectorAll('[data-section]').forEach(section => section.style.display = 'none');
+  }
+
+  hide_filters = () => {
+    document.querySelector('[data-filter]').setAttribute('data-filter', 'hide');
+    document.querySelectorAll('[data-section]').forEach(section => section.style.display = 'flex');
+  }
+
+  show_sections = () => {
+    document.querySelectorAll('input').forEach(box => {
+      if (box.checked) document.querySelector(`[data-section=${box.id}]`).style.display = 'flex';
+    });
+    document.querySelector('[data-filter]').setAttribute('data-filter', 'hide');
   }
 
   render() {
     return (
-      <div className="container" onScroll={this.onScroll}>
-        <a href="https://compare-plan.vercel.app/">Back to plans</a>
-        <Tabs clicked={(event, name) => this.activate_tab(event, name)} />
-        <Plan name={this.state.plans[`${this.state.current_plan}`].name} />
-        <main>
-          <Highlights content={this.state.plans[`${this.state.current_plan}`].highlights} />
-          <Doctors content={this.state.plans[`${this.state.current_plan}`].doctors} />
-          <Drugs content={this.state.plans[`${this.state.current_plan}`].drugs} />
-          <Hospital content={this.state.plans[`${this.state.current_plan}`].hospital} />
-          <Dental content={this.state.plans[`${this.state.current_plan}`].dental} />
-          <Vision content={this.state.plans[`${this.state.current_plan}`].vision} />
-          <Hearing content={this.state.plans[`${this.state.current_plan}`].hearing} />
-          <More content={this.state.plans[`${this.state.current_plan}`].more} />
-        </main>
-      </div>
+      <>
+        <div className="container" onScroll={this.onScroll}>
+          <a href="https://compare-plan.vercel.app/">Back to plans</a>
+          <Tabs clicked={(event, name) => this.activate_tab(event, name)} />
+          <Plan name={this.state.plans[`${this.state.current_plan}`].name} clicked={this.show_filters}/>
+          <main>
+            <Highlights content={this.state.plans[`${this.state.current_plan}`].highlights} />
+            <Doctors content={this.state.plans[`${this.state.current_plan}`].doctors} />
+            <Drugs content={this.state.plans[`${this.state.current_plan}`].drugs} />
+            <Hospital content={this.state.plans[`${this.state.current_plan}`].hospital} />
+            <Dental content={this.state.plans[`${this.state.current_plan}`].dental} />
+            <Vision content={this.state.plans[`${this.state.current_plan}`].vision} />
+            <Hearing content={this.state.plans[`${this.state.current_plan}`].hearing} />
+            <More content={this.state.plans[`${this.state.current_plan}`].more} />
+          </main>
+        </div>
+        <Filter cancel={this.hide_filters} compare={this.show_sections} />
+      </>
     )
   }
 }

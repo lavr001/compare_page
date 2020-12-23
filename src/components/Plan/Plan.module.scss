@@ -1,10 +1,27 @@
 @import '../../_vars';
 
 .box {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 160px;
+  font-weight: 600;
+  .filter {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: auto;
+    height: 22px;
+    font-weight: 400;
+    line-height: 22px;
+    color: $ehm_blue;
+    border-bottom: 2px solid rgba(58, 94, 186, 0.4);
+  }
+  .filter:active {
+    border-bottom: 2px solid $ehm_blue;
+    background: rgba(58, 94, 186, 0.1);
+  }
   .plan_logo {
     width: 97px;
     height: 25px;
