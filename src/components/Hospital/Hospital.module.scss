@@ -29,6 +29,9 @@
     .section_cost {
       @extend %section_cost;
     }
+    .section_disclaimer {
+      @extend %section_disclaimer;
+    }
   }
 }
 
@@ -36,7 +39,7 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-hospital='sticky'] {
+  .box[data-sticky='true'] {
     .section_header {
       position: fixed;
       top: 12vh;

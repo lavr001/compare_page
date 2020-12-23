@@ -23,19 +23,11 @@
   .box {
     width: 100vw;
   }
-  .box[data-section-highlights='sticky'] {
+  .box[data-sticky='true'] {
     .section_header {
       position: fixed;
       top: 12vh;
     }
-    // .section_header[data-section-header-highlights='flexible'] {
-    //   position: sticky;
-    //   top: 0;
-    //   // left: 0;
-    //   // bottom: 0;
-    //   // right: 0;
-    //   // -webkit-backface-visibility: hidden;
-    // }
     .section_content {
       margin-top: 60px;
     }

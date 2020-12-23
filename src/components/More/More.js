@@ -1,15 +1,13 @@
 import React from 'react';
-import classes from './Drugs.module.scss';
+import classes from './More.module.scss';
 
-const drugs = props => {
+const more = props => {
   return (
-    <div className={classes.box} data-section='drugs' data-sticky='false'>
-      <div className={classes.section_header}>Drugs</div>
+    <div className={classes.box} data-section='more' data-sticky='false'>
+      <div className={classes.section_header}>More</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {
-          if (el.includes('Coverage')) {
-            return <div className={classes.section_title} key={i}>{el}</div>
-          } else if (el.includes('border')) {
+          if (el.includes('border')) {
             return <div className={classes.section_subtitle_border} key={i}></div>
           } else if (!el) {
             return null
@@ -21,10 +19,10 @@ const drugs = props => {
             }
           }
         })}
-        <div className={classes.section_disclaimer}>* Whichever is more.</div>
+        <div className={classes.section_disclaimer}>* Depending on service provided.</div>
       </div>
     </div>
   )
 };
 
-export default drugs;
+export default more;

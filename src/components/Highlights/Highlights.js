@@ -3,8 +3,8 @@ import classes from './Highlights.module.scss';
 
 const highlights = props => {
   return (
-    <div className={classes.box} data-section-highlights>
-      <div className={classes.section_header} data-section-header-highlights>Highlights</div>
+    <div className={classes.box} data-section='highlights' data-sticky='false'>
+      <div className={classes.section_header}>Highlights</div>
       <div className={classes.section_content}>
         {props.content.map( (el, i) => {
           if (i % 2 === 0) {
